@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <section class="min-h-dvh h-auto flex flex-col justify-center items-center gap-4">
+        <nav class="bg-gray-200 h-[50px] absolute top-0 w-full flex justify-around items-center">
+            <a href="/">Home</a>
+            <a href="/profile">Profile</a>
+            <button class="bg-blue-500 text-white cursor-pointer p-2 rounded-xl transition hover:bg-white hover:text-blue-500" type="submit"><a href="/logout">Logout</a></button>
+        </nav>
+
+        <h1>Te damos la bienvenida {{ session.name }}</h1>
+        <button class="bg-blue-500 cursor-pointer text-white p-2 rounded-xl transition hover:bg-gray-200 hover:text-blue-500" type="submit"><a href="/tienda">Tienda</a></button>
+
+        <footer class="absolute bottom-0 w-full bg-gray-200 h-[50px] flex justify-center items-center">Footer</footer>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}  
+        {% endwith %}
+    </section>
+</body>
+</html>
